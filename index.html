@@ -1,24 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <title>Techy Portfolio</title>
+    <style>
+        body {
+            background: #f5f5f5; /* Light gray background */
+        }
 
-        <link rel="stylesheet" href="assets/css/styles.css">
+        /* Holographic grid animation */
+        .grid-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            perspective: 1000px; /* 3D perspective */
+            z-index: -1; /* Place behind content */
+            pointer-events: none; /* Ensure it doesn't interfere with clicks */
+        }
 
-        <!-- =====BOX ICONS===== -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+        .grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(74, 144, 226, 0.05));
+            transform-style: preserve-3d;
+            animation: rotate-grid 20s linear infinite;
+        }
 
-        <title>Portfolio website complete</title>
-    </head>
-    <body>
+        .grid::before,
+        .grid::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(74, 144, 226, 0.1), rgba(74, 144, 226, 0.05));
+            border: 1px solid rgba(74, 144, 226, 0.2);
+            transform: translateZ(-100px); /* 3D depth */
+        }
+
+        .grid::after {
+            transform: translateZ(-200px); /* Deeper 3D depth */
+        }
+
+        @keyframes rotate-grid {
+            0% {
+                transform: rotateX(0) rotateY(0);
+            }
+            100% {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Holographic grid animation container -->
+    <div class="grid-container">
+        <div class="grid"></div>
+    </div>
+
         <!--===== HEADER =====-->
         <header class="l-header">
             <nav class="nav bd-grid">
                 <div>
                     <a href="#" class="nav__logo">Sunil Yadav</a>
                 </div>
-
+    
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
                         <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
@@ -28,29 +84,29 @@
                         <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
                     </ul>
                 </div>
-
+    
                 <div class="nav__toggle" id="nav-toggle">
                     <i class='bx bx-menu'></i>
                 </div>
             </nav>
         </header>
-
+    
         <main class="l-main">
             <!--===== HOME =====-->
             <section class="home bd-grid" id="home">
                 <div class="home__data">
                     <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Sunil</span><br> Software Engineer</h1>
-
+    
                     <a href="#" class="button">Contact</a>
                 </div>
-
+    
                 <div class="home__social">
-                    <a href="#" class="home__social-icon"><i class='bx bxl-linkedin' ></i></a>
-                    <a href="#" class="home__social-icon"><i class='bx bxl-github' ></i></a>
-                    <a href="#" class="home__social-icon"><i class='bx bxl-twitter' ></i></a>
-                    <a href="#" class="home__social-icon"><i class='bx bxl-discord' ></i></a>
+                    <a href="https://www.linkedin.com/in/sunilkumar-yadav-2k4" class="home__social-icon"><i class='bx bxl-linkedin' ></i></a>
+                    <a href="https://github.com/Sunil-Yadav-1912" class="home__social-icon"><i class='bx bxl-github' ></i></a>
+                    <a href="http://discordapp.com/users/1202501567027216387" class="home__social-icon"><i class='bx bxl-discord' ></i></a>
+                    <a href="https://www.instagram.com/sunil_yadav_1912?igsh=ZGUzMzM3NWJiOQ==" class="home__social-icon"><i class='bx bxl-instagram' ></i></a>
                 </div>
-
+    
                 <div class="home__img">
                     <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <mask id="mask0" mask-type="alpha">
@@ -63,11 +119,11 @@
                     </svg>
                 </div>
             </section>
-
+    
             <!--===== ABOUT =====-->
             <section class="about section " id="about">
                 <h2 class="section-title">About</h2>
-
+    
                 <div class="about__container bd-grid">
                     <div class="about__img">
                         <img src="assets/img/Sunil.jpeg" alt="">
@@ -85,11 +141,11 @@
                     </div>                                   
                 </div>
             </section>
-
+    
             <!--===== SKILLS =====-->
             <section class="skills section" id="skills">
                 <h2 class="section-title">Skills</h2>
-
+    
                 <div class="skills__container bd-grid">          
                     <div>
                         <h2 class="skills__subtitle">Profesional Skills</h2>
@@ -99,7 +155,7 @@
                                 <span class="skills__name">PHP</span>
                             </div>
                             <div class="skills__bar skills__php">
-
+    
                             </div>
                             <div>
                                 <span class="skills__percentage">90%</span>
@@ -129,7 +185,7 @@
                                 <span class="skills__percentage">85%</span>
                             </div>
                         </div>
-
+    
                         <div class="skills__data">
                             <div class="skills__names">
                                 <i class='bx bxl-laravel skills__icon' ></i>
@@ -185,33 +241,33 @@
                     </div>
                 </div>
             </section>
-
+    
             <!--===== WORK =====-->
             <section class="work section" id="work">
                 <h2 class="section-title">Work</h2>
-
+    
                 <div class="work__container bd-grid">
                     <a href="" class="work__img">
-                        <img src="assets/img/work1.jpg" alt="">
+                        <img src="assets/img/work1.webp" alt="">
                     </a>
                     <a href="" class="work__img">
-                        <img src="assets/img/work2.jpg" alt="">
+                        <img src="assets/img/work2.webp" alt="">
                     </a>
                     <a href="" class="work__img">
-                        <img src="assets/img/work3.jpg" alt="">
+                        <img src="assets/img/work3.png" alt="">
                     </a>
                     <a href="" class="work__img">
-                        <img src="assets/img/work4.jpg" alt="">
+                        <img src="assets/img/work4.webp" alt="">
                     </a>
                     <a href="" class="work__img">
-                        <img src="assets/img/work5.jpg" alt="">
+                        <img src="assets/img/work5.webp" alt="">
                     </a>
                     <a href="" class="work__img">
-                        <img src="assets/img/work6.jpg" alt="">
+                        <img src="assets/img/work6.webp" alt="">
                     </a>
                 </div>
             </section>
-
+    
             <!--===== CONTACT =====-->
             <section class="contact section" id="contact">
                 <h2 class="section-title">Contact</h2>
@@ -220,29 +276,28 @@
                         <input type="text" placeholder="Name" class="contact__input">
                         <input type="mail" placeholder="Email" class="contact__input">
                         <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
-                        <input type="button" value="Enviar" class="contact__button button">
+                        <input type="button" value="Contact" class="contact__button button">
                     </form>
                 </div>
             </section>
         </main>
-
+    
         <!--===== FOOTER =====-->
         <footer class="footer">
             <p class="footer__title">Social Links</p>
             <div class="footer__social">
-                <a href="#" class="footer__icon"><i class='bx bxl-linkedin' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-github' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-discord' ></i></a>
+                <a href="https://www.linkedin.com/in/sunilkumar-yadav-2k4" class="footer__icon"><i class='bx bxl-linkedin' ></i></a>
+                <a href="https://github.com/Sunil-Yadav-1912" class="footer__icon"><i class='bx bxl-github' ></i></a>
+                <a href="http://discordapp.com/users/1202501567027216387" class="footer__icon"><i class='bx bxl-discord' ></i></a>
+                <a href="https://www.instagram.com/sunil_yadav_1912?igsh=ZGUzMzM3NWJiOQ==" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
             </div>
             <p class="footer__copy">&#169; Sunilkumar Yadav. All rigths reserved</p>
         </footer>
-
-
-        <!--===== SCROLL REVEAL =====-->
-        <script src="https://unpkg.com/scrollreveal"></script>
-
-        <!--===== MAIN JS =====-->
-        <script src="assets/js/main.js"></script>
     </body>
+    
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--===== MAIN JS =====-->
+    <script src="assets/js/main.js"></script>
 </html>
